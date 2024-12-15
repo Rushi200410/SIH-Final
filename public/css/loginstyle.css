@@ -1,0 +1,221 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px 0px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.header .logo {
+    font-size: 1.7em;
+    color: black;
+    text-decoration: none;
+}
+
+.marque a {
+    position: relative;
+    font-size: 1.1em;
+    color: black;
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+.marque a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.5s;
+}
+
+
+.split-layout {
+    gap: 20px;
+    display: flex;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 80px 40px 0;
+}
+
+.home .wrapper-login {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid #C0282C;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 250px;
+}
+
+.wrapper-login form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper-login .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    padding-left: 60px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 40px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: black;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+    top: 10px;
+    font-size: 0.9em;
+    color: #C0282C;
+}
+
+.input-box .icon {
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    font-size: 1.2em;
+    color: black;
+}
+
+.wrapper-login button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 40px;
+    background-color: #C0282C;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.wrapper-login button:hover {
+    background-color: #540F11;
+}
+
+.wrapper-login .extra-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    text-align: right;
+    margin-bottom: 1rem;
+    font-size: 0.75em; /* Reduced font size for "Remember me" text */
+    color: #555;
+}
+
+.wrapper-login .extra-options a {
+    text-decoration: none;
+    color: #C0282C;
+    font-size: 0.75em; /* Adjusted font size for the link */
+    transition: color 0.3s ease;
+}
+
+.wrapper-login .extra-options a:hover {
+    color: #540F11;
+}
+
+.wrapper-login .extra-options input[type="checkbox"] {
+    transform: scale(0.8); /* Reduced the size of the checkbox */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home {
+        padding: 80px 20px 0;
+    }
+
+    .wrapper-login {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .input-box input {
+        width: calc(100% - 80px);
+    }
+}
+
+@media (max-width: 480px) {
+    .header .logo {
+        font-size: 1.4em;
+    }
+
+    .nav a {
+        font-size: 1em;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .wrapper-login {
+        width: 100%;
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .input-box input {
+        width: 100%;
+    }
+
+    .wrapper-login .extra-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

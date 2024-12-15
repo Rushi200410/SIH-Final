@@ -1,0 +1,160 @@
+/* Global Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Remove scrollbar completely */
+    background-color: #f9f9f9; /* Light background for better visuals */
+}
+
+/* Fixed Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 1.0em;
+    color: black;
+    text-decoration: none;
+}
+
+.nav a {
+    position: relative;
+    font-size: 1.0em;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #C0282C;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.5s;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav a.active {
+    font-weight: bold;
+    color: black;
+}
+
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #C0282C;
+    border-radius: 5px;
+    transform: scaleX(1);
+    transition: none;
+}
+
+/* Main Content Area */
+.reports-container {
+    margin-top: 100px; /* To prevent overlap with fixed header */
+    padding: 20px;
+    min-height: calc(100vh - 100px); /* Adjust height to fit the viewport */
+}
+
+/* Report Filters Section */
+.report-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-input, .filter-select, .filter-btn {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-btn {
+    background-color: #C0282C;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #A0171C;
+}
+
+/* Report Charts */
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-card {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Download Section */
+.download-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center; /* Center the buttons */
+    flex-wrap: wrap; /* Ensure buttons wrap when needed */
+}
+
+/* Download Button */
+.download-btn {
+    padding: 12px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}

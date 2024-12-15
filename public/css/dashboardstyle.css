@@ -1,0 +1,212 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 1.0em;
+    color: black;
+    text-decoration: none;
+}
+
+.nav a {
+    position: relative;
+    font-size: 1.0em;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #C0282C;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.5s;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav a.active {
+    font-weight: bold; /* Keep bold to match others */
+    color: black; /* Same color */
+}
+
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #C0282C; /* Same color as hover underline */
+    border-radius: 5px;
+    transform: scaleX(1); /* Keep the underline visible */
+    transition: none; /* Disable the transition */
+}
+
+
+/* Main Section */
+main {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #444;
+}
+
+/* Key Metrics Section */
+.key-metrics {
+    margin-bottom: 40px;
+}
+
+.metrics-chart-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.metrics-container {
+    display: flex;
+    gap: 20px;
+    flex: 2;
+}
+
+.card {
+    background: white;
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #d30505;
+}
+
+.card p {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Pie Chart Section */
+.pie-chart-container {
+    text-align: center;
+    flex: 1;
+}
+
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    transform: rotate(-90deg);
+}
+
+.pie-chart circle {
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: 3;
+    animation: loadPie 1.5s ease-out forwards;
+}
+
+.pie-chart .bg {
+    stroke: #e6e6e6; /* Outer stroke color */
+    fill: #ffffff; /* Background color to fill the pie chart */
+}
+
+.pie-chart .good {
+    stroke: #d30505; /* Slice color */
+    fill: none; /* Do not fill this circle */
+}
+.pie-chart text {
+    fill: #333;
+    transform: rotate(90deg);
+}
+
+.pie-chart .inner {
+    fill: #ffffff; /* Set the color of the inner circle (matches the background) */
+}
+
+/* On hover, display tooltip-like effect using title attribute */
+.pie-chart .good:hover {
+    cursor: pointer;
+}
+
+@keyframes loadPie {
+    from {
+        stroke-dasharray: 0 100;
+    }
+    to {
+        stroke-dasharray: 85 15;
+    }
+}
+
+/* Defect Overview Section */
+.defect-overview table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.defect-overview table thead {
+    background: #d30505;
+    color: white;
+}
+
+.defect-overview table thead th {
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.defect-overview table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.defect-overview table tbody tr:hover {
+    background: #f1f1f1;
+}
+
+.defect-overview table td,
+.defect-overview table th {
+    padding: 10px 15px;
+    text-align: left;
+}

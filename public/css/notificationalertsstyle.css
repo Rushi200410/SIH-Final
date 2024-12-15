@@ -1,0 +1,234 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 1.0em;
+    color: black;
+    text-decoration: none;
+}
+
+.nav a {
+    position: relative;
+    font-size: 1.0em;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-weight: bold;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #C0282C;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.5s;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav a.active {
+    font-weight: bold; /* Keep bold to match others */
+    color: black; /* Same color */
+}
+
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #C0282C; /* Same color as hover underline */
+    border-radius: 5px;
+    transform: scaleX(1); /* Keep the underline visible */
+    transition: none; /* Disable the transition */
+}
+
+
+/* Main Section */
+main {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #444;
+}
+
+
+.dashboard {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 2.4em;
+    color: #333;
+}
+
+.dashboard-header p {
+    color: #666;
+}
+
+/* Search and Filter Section */
+.search-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.search-bar,
+.filter-select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    background: #C0282C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Alerts Overview Section */
+.overview {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Reduced the gap between the cards */
+    margin-bottom: 10px; /* Reduced the margin at the bottom */
+}
+
+.overview-card {
+    flex: 1;
+    padding: 3px 1px; /* Reduced padding vertically */
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card.high {
+    border-left: 5px solid #C0282C;
+}
+
+.overview-card.medium {
+    border-left: 5px solid #f5a623;
+}
+
+.overview-card.low {
+    border-left: 5px solid #4caf50;
+}
+
+.overview-card h2 {
+    margin-bottom: 5px;  /* Reduced margin to bring the text closer */
+    font-size: 2em;      /* You can adjust the size as needed */
+}
+
+.overview-card p {
+    margin-top: 0;      /* Remove any default margin from the top */
+    font-size: 1em;     /* Adjust the font size as needed */
+}
+
+
+/* Alerts List Section */
+.alerts-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 10px 0;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.alerts-list::-webkit-scrollbar {
+    height: 10px;
+}
+
+.alerts-list::-webkit-scrollbar-thumb {
+    background: #C0282C;
+    border-radius: 5px;
+}
+
+.alerts-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.alert-item {
+    flex: 0 0 300px; /* Fixed width for each alert to create a scrolling effect */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-item.high {
+    border-left: 5px solid #C0282C;
+}
+
+.alert-item.medium {
+    border-left: 5px solid #f5a623;
+}
+
+.alert-item.low {
+    border-left: 5px solid #4caf50;
+}
+
+.alert-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.alert-item p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.details-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #C0282C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

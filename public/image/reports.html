@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reportsstyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for interactive graphs -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img 
+                src="delhi_metro_logo.png" 
+                alt="Delhi Metro Logo" 
+                class="brand-logo"
+            />
+        </a>
+        <nav class="nav">
+            <a href="#">Dashboard</a>
+            <a href="#">Notifications</a>
+            <a href="#" class="active">Reports</a>
+            <a href="#">Help</a>
+            <a href="#">About Us</a>
+        </nav>
+    </header>
+
+    <!-- Reports Page Content -->
+    <main class="reports-container">
+        <!-- Filters for Reports -->
+        <section class="report-filters">
+            <input type="date" class="filter-input">
+            <select class="filter-select">
+                <option value="all">All Regions</option>
+                <option value="north">North</option>
+                <option value="south">South</option>
+                <option value="east">East</option>
+                <option value="west">West</option>
+            </select>
+            <button class="filter-btn">Generate Report</button>
+        </section>
+
+        <!-- Report Charts -->
+        <section class="charts-container">
+            <div class="chart-card">
+                <h3>Defect Trends Over Time</h3>
+                <canvas id="defectChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Defects by Region</h3>
+                <canvas id="regionChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Download Reports -->
+        <section class="download-section">
+            <button class="download-btn">Export as PDF</button>
+            <button class="download-btn">Export as Excel</button>
+            <button class="download-btn">Export as CSV</button>
+        </section>
+    </main>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        const ctx1 = document.getElementById('defectChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Number of Defects',
+                    data: [12, 19, 8, 15, 20, 10],
+                    borderColor: '#C0282C',
+                    backgroundColor: 'rgba(192, 40, 44, 0.2)',
+                    borderWidth: 2,
+                    fill: true,
+                }]
+            }
+        });
+
+        const ctx2 = document.getElementById('regionChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['North', 'South', 'East', 'West'],
+                datasets: [{
+                    label: 'Defects',
+                    data: [5, 10, 7, 3],
+                    backgroundColor: ['#C0282C', '#f5a623', '#4caf50', '#4287f5']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
